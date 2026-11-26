@@ -42,6 +42,10 @@ After the stack had been running for a long time:
 - Health-check timeouts on RabbitMQ showed up as connection resets once the node was already under memory pressure. Fix the resource limit; do not just restart the one failing container.
 - Trimming connectors you are not using is a valid way to get a lab back to a stable baseline before you add more feeds.
 
+## Troubleshooting
+
+- [2026-11-26: MinIO reported unhealthy on `docker compose up`, caused by Elasticsearch starving the Docker VM](docs/troubleshooting/2026-11-26-minio-unhealthy-elasticsearch-memory.md)
+
 ## Roadmap (not done)
 
 Capture home-network traffic (for example with **Zeek** or **Suricata**) and feed it into the SOC, to see whether anyone is attacking the home network.
@@ -58,5 +62,7 @@ If example Compose files are added later, they should use placeholders only.
 ## Skills this lab exercises
 
 OpenCTI, Docker Compose, Elasticsearch operations, threat-intel connectors (MITRE ATT&CK, ThreatFox), and troubleshooting.
+
+Troubleshooting evidence: [incident write-up on diagnosing a MinIO healthcheck failure under I/O and memory pressure](docs/troubleshooting/2026-11-26-minio-unhealthy-elasticsearch-memory.md) (health logs, `docker stats`, ruling out disk space, root cause and fix).
 
 Built by [Gouresh Kamble](https://github.com/gkambl).
