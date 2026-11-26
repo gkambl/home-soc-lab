@@ -46,9 +46,17 @@ After the stack had been running for a long time:
 
 - [2026-11-26: MinIO reported unhealthy on `docker compose up`, caused by Elasticsearch starving the Docker VM](docs/troubleshooting/2026-11-26-minio-unhealthy-elasticsearch-memory.md)
 
-## Roadmap (not done)
+## Roadmap (planned, not done)
 
-Capture home-network traffic (for example with **Zeek** or **Suricata**) and feed it into the SOC, to see whether anyone is attacking the home network.
+**Status: planned. Nothing below has been built yet.**
+
+Planned pipeline:
+
+```text
+network traffic → Zeek / Suricata → alerts / observables → OpenCTI
+```
+
+Goal: find out whether anyone is attacking the home network. Home-network traffic would be captured and analysed with **Zeek** and/or **Suricata**. Their alerts and observables would then be fed into OpenCTI.
 
 ## What this repo will not contain
 
