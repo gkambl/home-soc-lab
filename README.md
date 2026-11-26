@@ -73,4 +73,8 @@ OpenCTI, Docker Compose, Elasticsearch operations, threat-intel connectors (MITR
 
 Troubleshooting evidence: [incident write-up on diagnosing a MinIO healthcheck failure under I/O and memory pressure](docs/troubleshooting/2026-11-26-minio-unhealthy-elasticsearch-memory.md) (health logs, `docker stats`, ruling out disk space, root cause and fix).
 
+## License
+
+MIT License. See [LICENSE](LICENSE).
+
 Built by [Gouresh Kamble](https://github.com/gkambl).
