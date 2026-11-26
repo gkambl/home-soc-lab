@@ -3,3 +3,7 @@
 *.pem
 *.key
 docker-compose.override.yml
+
+# Local packet captures; do not commit
+*.pcap
+*.pcapng

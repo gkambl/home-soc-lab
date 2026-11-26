@@ -46,9 +46,11 @@ After the stack had been running for a long time:
 
 - [2026-11-26: MinIO reported unhealthy on `docker compose up`, caused by Elasticsearch starving the Docker VM](docs/troubleshooting/2026-11-26-minio-unhealthy-elasticsearch-memory.md)
 
-## Roadmap (planned, not done)
+## Lab log
 
-**Status: planned. Nothing below has been built yet.**
+- [2026-11-26: tcpdump baseline and Zeek install](docs/lab-log/2026-11-26-tcpdump-baseline-and-zeek-install.md)
+
+## Roadmap
 
 Planned pipeline:
 
@@ -56,7 +58,11 @@ Planned pipeline:
 network traffic → Zeek / Suricata → alerts / observables → OpenCTI
 ```
 
-Goal: find out whether anyone is attacking the home network. Home-network traffic would be captured and analysed with **Zeek** and/or **Suricata**. Their alerts and observables would then be fed into OpenCTI.
+Goal: find out whether anyone is attacking the home network.
+
+**In progress (26 Nov 2026):** first step, capturing traffic and installing Zeek. A short tcpdump baseline on the default Ethernet interface (`en8`) found no unsolicited inbound TCP SYNs in that window. A local pcap was saved (not in this repo). A Homebrew install of Zeek 9.0.1 was started on an Intel Mac, where it has to build from source; it was still running at the time of writing. Notes: [tcpdump baseline and Zeek install](docs/lab-log/2026-11-26-tcpdump-baseline-and-zeek-install.md).
+
+**Not done yet:** finish the Zeek install (or run Zeek in Docker / a Linux VM), analyse the pcap with `zeek -r`, add Suricata, and feed alerts and observables into OpenCTI.
 
 ## What this repo will not contain
 
@@ -69,9 +75,11 @@ If example Compose files are added later, they should use placeholders only.
 
 ## Skills this lab exercises
 
-OpenCTI, Docker Compose, Elasticsearch operations, threat-intel connectors (MITRE ATT&CK, ThreatFox), and troubleshooting.
+OpenCTI, Docker Compose, Elasticsearch operations, threat-intel connectors (MITRE ATT&CK, ThreatFox), packet capture with tcpdump, and troubleshooting.
 
 Troubleshooting evidence: [incident write-up on diagnosing a MinIO healthcheck failure under I/O and memory pressure](docs/troubleshooting/2026-11-26-minio-unhealthy-elasticsearch-memory.md) (health logs, `docker stats`, ruling out disk space, root cause and fix).
+
+Lab log: [tcpdump baseline and Zeek install](docs/lab-log/2026-11-26-tcpdump-baseline-and-zeek-install.md) (SYN vs SYN-ACK filter lesson, local pcap, Intel Homebrew caveat).
 
 ## License
 

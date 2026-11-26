@@ -138,14 +138,14 @@ Then re-run `docker compose up -d`.
 - **Stagger the connectors** so they don't all start while Elasticsearch is warming up.
 - **Use Compose profiles** for optional services (XTM One, composer, extra connectors), so the core stack can start on its own.
 
-## Next (planned, not done)
+## Next
 
-The next planned step is a network-monitoring pipeline. **It is not built yet.**
+The planned network-monitoring pipeline is still not built. A first capture-and-install step is now in progress; see [tcpdump baseline and Zeek install](../lab-log/2026-11-26-tcpdump-baseline-and-zeek-install.md).
 
 ```text
 network traffic → Zeek / Suricata → alerts / observables → OpenCTI
 ```
 
-The goal is to see whether anyone is attacking the home network. The memory and I/O limits found above matter for this step. Zeek or Suricata would add load on the same Docker host, so the Elasticsearch heap cap and optional-service profiles should be in place first.
+The goal is to see whether anyone is attacking the home network. The memory and I/O limits found above still matter for this step. Zeek or Suricata would add load on the same Docker host, so the Elasticsearch heap cap and optional-service profiles should be in place first.
 
 Back to the [lab README](../../README.md).
