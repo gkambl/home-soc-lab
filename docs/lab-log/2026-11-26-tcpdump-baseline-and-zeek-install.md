@@ -1,6 +1,6 @@
 # tcpdump baseline and Zeek install
 
-**Date:** 2026-11-26 (Europe/Amsterdam) · **Host:** Intel MacBook Pro, default interface `en8` (Ethernet) · **Status:** traffic baseline captured; Zeek install started, not finished
+**Date:** 2026-11-26 (Europe/Amsterdam) · **Host:** Intel MacBook Pro, default interface `en8` (Ethernet) · **Status:** traffic baseline captured; Zeek install started, not finished. Follow-up: the source build failed overnight; analysis continued in Docker on 27 Nov — see [Zeek and Suricata in Docker](2026-11-27-zeek-suricata-docker.md).
 
 ## Goal
 
@@ -96,11 +96,8 @@ Homebrew also warned that the `trufflesecurity/trufflehog` tap is untrusted, and
 
 ## Next steps
 
-1. Finish the Zeek install, or switch to Docker / a Linux VM if the source build is too slow or fails.
-2. Point Zeek at the local pcap: `zeek -r ~/Desktop/incoming-attempts.pcap`.
-3. Add Suricata and compare its alerts with Zeek's logs.
-4. Feed alerts and observables into OpenCTI.
+The Homebrew Zeek install did not finish. The follow-up session switched to Docker, analysed this pcap with Zeek and Suricata, and started a longer live capture. See [Zeek and Suricata in Docker](2026-11-27-zeek-suricata-docker.md).
 
-None of those steps have been done yet.
+Feeding alerts and observables into OpenCTI is still not done.
 
 Back to the [lab README](../../README.md).

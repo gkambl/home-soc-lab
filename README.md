@@ -49,6 +49,7 @@ After the stack had been running for a long time:
 ## Lab log
 
 - [2026-11-26: tcpdump baseline and Zeek install](docs/lab-log/2026-11-26-tcpdump-baseline-and-zeek-install.md)
+- [2026-11-27: Zeek and Suricata in Docker](docs/lab-log/2026-11-27-zeek-suricata-docker.md)
 
 ## Roadmap
 
@@ -60,9 +61,11 @@ network traffic → Zeek / Suricata → alerts / observables → OpenCTI
 
 Goal: find out whether anyone is attacking the home network.
 
-**In progress (26 Nov 2026):** first step, capturing traffic and installing Zeek. A short tcpdump baseline on the default Ethernet interface (`en8`) found no unsolicited inbound TCP SYNs in that window. A local pcap was saved (not in this repo). A Homebrew install of Zeek 9.0.1 was started on an Intel Mac, where it has to build from source; it was still running at the time of writing. Notes: [tcpdump baseline and Zeek install](docs/lab-log/2026-11-26-tcpdump-baseline-and-zeek-install.md).
+**Done (27 Nov 2026):** analysed the 26 Nov pcap with **Zeek** and **Suricata** in Docker, after a Homebrew Zeek install failed on the Intel Mac. About 20 unique external IPv4 destinations; the traffic was expected. Suricata raised two severity-3 alerts for excessive retransmissions on outbound TLS, triaged as benign. Notes: [Zeek and Suricata in Docker](docs/lab-log/2026-11-27-zeek-suricata-docker.md). Helper scripts: [`scripts/zeek-pcap.sh`](scripts/zeek-pcap.sh), [`scripts/suricata-pcap.sh`](scripts/suricata-pcap.sh).
 
-**Not done yet:** finish the Zeek install (or run Zeek in Docker / a Linux VM), analyse the pcap with `zeek -r`, add Suricata, and feed alerts and observables into OpenCTI.
+**In progress:** a longer live capture on `en8` (`~/Desktop/live-home-soc.pcap`, local only, not in this repo).
+
+**Not done yet:** feed alerts and observables into OpenCTI.
 
 ## What this repo will not contain
 
@@ -75,11 +78,11 @@ If example Compose files are added later, they should use placeholders only.
 
 ## Skills this lab exercises
 
-OpenCTI, Docker Compose, Elasticsearch operations, threat-intel connectors (MITRE ATT&CK, ThreatFox), packet capture with tcpdump, and troubleshooting.
+OpenCTI, Docker Compose, Elasticsearch operations, threat-intel connectors (MITRE ATT&CK, ThreatFox), packet capture with tcpdump, Zeek, Suricata, and troubleshooting.
 
 Troubleshooting evidence: [incident write-up on diagnosing a MinIO healthcheck failure under I/O and memory pressure](docs/troubleshooting/2026-11-26-minio-unhealthy-elasticsearch-memory.md) (health logs, `docker stats`, ruling out disk space, root cause and fix).
 
-Lab log: [tcpdump baseline and Zeek install](docs/lab-log/2026-11-26-tcpdump-baseline-and-zeek-install.md) (SYN vs SYN-ACK filter lesson, local pcap, Intel Homebrew caveat).
+Lab log: [tcpdump baseline and Zeek install](docs/lab-log/2026-11-26-tcpdump-baseline-and-zeek-install.md) (SYN vs SYN-ACK filter lesson, local pcap, Intel Homebrew caveat); [Zeek and Suricata in Docker](docs/lab-log/2026-11-27-zeek-suricata-docker.md) (pcap analysis, ET Open rules, alert triage, NDJSON gotcha).
 
 ## License
 

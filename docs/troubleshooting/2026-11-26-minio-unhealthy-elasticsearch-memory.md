@@ -140,7 +140,7 @@ Then re-run `docker compose up -d`.
 
 ## Next
 
-The planned network-monitoring pipeline is still not built. A first capture-and-install step is now in progress; see [tcpdump baseline and Zeek install](../lab-log/2026-11-26-tcpdump-baseline-and-zeek-install.md).
+The pcap stage of the network-monitoring pipeline is now done in Docker; OpenCTI ingestion is still not started. See [tcpdump baseline and Zeek install](../lab-log/2026-11-26-tcpdump-baseline-and-zeek-install.md) and [Zeek and Suricata in Docker](../lab-log/2026-11-27-zeek-suricata-docker.md).
 
 ```text
 network traffic → Zeek / Suricata → alerts / observables → OpenCTI

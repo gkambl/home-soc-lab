@@ -7,3 +7,8 @@ docker-compose.override.yml
 # Local packet captures; do not commit
 *.pcap
 *.pcapng
+
+# Local Zeek / Suricata lab output; do not commit
+lab-output/
+*.log
+eve.json
