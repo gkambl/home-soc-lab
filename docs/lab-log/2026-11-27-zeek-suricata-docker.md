@@ -85,7 +85,7 @@ From `conn.log`, `dns.log` and `ssl.log`:
 - Connections were mostly **TLS on port 443** with `conn_state` **SF** (a normal establishment and teardown). There were also a few **OTH** connections and one **RSTRH**.
 - DNS queries went to the **ISP resolver**.
 - The SNIs and DNS names were mainly a **dev tool's API** (AWS), an **AI chat service**, **Microsoft telemetry and Defender** cloud endpoints, a **CleanTalk** anti-spam API, and **one company website**.
-- On the LAN, there was **mDNS** and **SSDP** from a **smart-home bridge** and the **router**.
+- On the LAN, there was **mDNS** and **SSDP** from a **smart-home bridge** and the **router**. A later session the same day started a LAN asset inventory; see [LAN asset discovery](2026-11-27-lan-asset-discovery.md).
 
 Nothing in this short pcap looked unexpected. It is still only the 26 Nov baseline, not a verdict on the home network in general.
 
@@ -167,6 +167,8 @@ It had not been stopped when these notes were written, so there are no results f
 
 1. Stop and analyse the live capture with the same Zeek and Suricata Docker workflow.
 2. Feed alerts and observables into OpenCTI — this step has not been started.
+
+A follow-up session the same day started a **LAN asset inventory** (5 of 7 devices identified so far). See [LAN asset discovery](2026-11-27-lan-asset-discovery.md).
 
 Pcaps, Zeek logs, Suricata logs (`eve.json`, `fast.log`) and downloaded rule files remain on the local machine.
 

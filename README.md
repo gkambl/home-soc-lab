@@ -50,6 +50,7 @@ After the stack had been running for a long time:
 
 - [2026-11-26: tcpdump baseline and Zeek install](docs/lab-log/2026-11-26-tcpdump-baseline-and-zeek-install.md)
 - [2026-11-27: Zeek and Suricata in Docker](docs/lab-log/2026-11-27-zeek-suricata-docker.md)
+- [2026-11-27: LAN asset discovery](docs/lab-log/2026-11-27-lan-asset-discovery.md)
 
 ## Roadmap
 
@@ -65,7 +66,9 @@ Goal: find out whether anyone is attacking the home network.
 
 **In progress:** a longer live capture on `en8` (`~/Desktop/live-home-soc.pcap`, local only, not in this repo).
 
-**Not done yet:** feed alerts and observables into OpenCTI.
+**In progress (27 Nov 2026):** LAN **asset inventory** — 5 of 7 devices identified (71.4%). Two hosts with locally administered (private Wi-Fi) MACs are still unknown. Next: the ISP router's connected-devices page, then register the confirmed assets in OpenCTI. Notes: [LAN asset discovery](docs/lab-log/2026-11-27-lan-asset-discovery.md).
+
+**Not done yet:** feed alerts and observables into OpenCTI, and register the confirmed LAN assets as IPv4 observables in the Home SOC Monitoring grouping.
 
 ## What this repo will not contain
 
@@ -78,11 +81,11 @@ If example Compose files are added later, they should use placeholders only.
 
 ## Skills this lab exercises
 
-OpenCTI, Docker Compose, Elasticsearch operations, threat-intel connectors (MITRE ATT&CK, ThreatFox), packet capture with tcpdump, Zeek, Suricata, and troubleshooting.
+OpenCTI, Docker Compose, Elasticsearch operations, threat-intel connectors (MITRE ATT&CK, ThreatFox), packet capture with tcpdump, Zeek, Suricata, LAN asset discovery (nmap, ARP, mDNS), and troubleshooting.
 
 Troubleshooting evidence: [incident write-up on diagnosing a MinIO healthcheck failure under I/O and memory pressure](docs/troubleshooting/2026-11-26-minio-unhealthy-elasticsearch-memory.md) (health logs, `docker stats`, ruling out disk space, root cause and fix).
 
-Lab log: [tcpdump baseline and Zeek install](docs/lab-log/2026-11-26-tcpdump-baseline-and-zeek-install.md) (SYN vs SYN-ACK filter lesson, local pcap, Intel Homebrew caveat); [Zeek and Suricata in Docker](docs/lab-log/2026-11-27-zeek-suricata-docker.md) (pcap analysis, ET Open rules, alert triage, NDJSON gotcha).
+Lab log: [tcpdump baseline and Zeek install](docs/lab-log/2026-11-26-tcpdump-baseline-and-zeek-install.md) (SYN vs SYN-ACK filter lesson, local pcap, Intel Homebrew caveat); [Zeek and Suricata in Docker](docs/lab-log/2026-11-27-zeek-suricata-docker.md) (pcap analysis, ET Open rules, alert triage, NDJSON gotcha); [LAN asset discovery](docs/lab-log/2026-11-27-lan-asset-discovery.md) (false-positive ping sweep, mDNS inventory, 5 of 7 assets identified).
 
 ## License
 
